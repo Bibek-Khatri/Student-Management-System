@@ -28,16 +28,44 @@ namespace Student_Management_System
 
         private void Add_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(StdName.Text) ||
+               string.IsNullOrWhiteSpace(StdRoll.Text) ||
+               string.IsNullOrWhiteSpace(StdSec.Text) ||
+               string.IsNullOrWhiteSpace(StdAge.Text) ||
+               string.IsNullOrWhiteSpace(StdAddress.Text) ||
+               string.IsNullOrWhiteSpace(StdPhone.Text))
+            {
+                MessageBox.Show("All fields must be filled!");
+                return;
+            }
+
+            if (!int.TryParse(StdRoll.Text, out int roll))
+            {
+                MessageBox.Show("Roll number must be numeric!");
+                return;
+            }
+            if (!int.TryParse(StdAge.Text, out int age))
+            {
+                MessageBox.Show("Age must be numeric!");
+                return;
+            }
+
+            
+            if (StdPhone.Text.Length < 7 || StdPhone.Text.Length > 15)
+            {
+                MessageBox.Show("Phone number must be between 7 and 15 digits!");
+                return;
+            }
 
             string query = "INSERT INTO Students ([Name], [Roll_no], [Section], [Age], [Address], [Phone_no]) " +
-               "VALUES (@name, @roll, @section, @age, @address, @phone)";
+               "VALUES (?, ?, ?, ?, ?, ?)";
 
             using (OleDbCommand cmd = new OleDbCommand(query, connection))
             {
                 cmd.Parameters.AddWithValue("?", StdName.Text);
-                cmd.Parameters.AddWithValue("?", int.Parse(StdRoll.Text));
+                cmd.Parameters.AddWithValue("?", roll);
                 cmd.Parameters.AddWithValue("?", StdSec.Text);
-                cmd.Parameters.AddWithValue("?", int.Parse(StdAge.Text));
+                cmd.Parameters.AddWithValue("?", age);
                 cmd.Parameters.AddWithValue("?", StdAddress.Text);
                 cmd.Parameters.AddWithValue("?", StdPhone.Text);
 
