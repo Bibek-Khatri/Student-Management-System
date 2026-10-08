@@ -190,6 +190,7 @@
             Update.TabIndex = 16;
             Update.Text = "Update";
             Update.UseVisualStyleBackColor = true;
+            Update.Click += Update_Click;
             // 
             // Delete
             // 

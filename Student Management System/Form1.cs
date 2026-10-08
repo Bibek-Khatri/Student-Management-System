@@ -93,5 +93,59 @@ namespace Student_Management_System
                 StdPhone.Text = row.Cells["Phone_no"].Value?.ToString();
             }
         }
+
+        private void Update_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(StdID.Text))
+            {
+                MessageBox.Show("Please select a student first!");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(StdName.Text) ||
+                string.IsNullOrWhiteSpace(StdRoll.Text) ||
+                string.IsNullOrWhiteSpace(StdSec.Text) ||
+                string.IsNullOrWhiteSpace(StdAge.Text) ||
+                string.IsNullOrWhiteSpace(StdAddress.Text) ||
+                string.IsNullOrWhiteSpace(StdPhone.Text))
+            {
+                MessageBox.Show("All fields must be filled!");
+                return;
+            }
+
+            if (!int.TryParse(StdRoll.Text, out int roll))
+            {
+                MessageBox.Show("Roll number must be numeric!");
+                return;
+            }
+
+            if (!int.TryParse(StdAge.Text, out int age))
+            {
+                MessageBox.Show("Age must be numeric!");
+                return;
+            }
+
+            string query = "UPDATE Students SET [Name] = ?, [Roll_no] = ?, [Section] = ?, " +
+                           "[Age] = ?, [Address] = ?, [Phone_no] = ? " +
+                           "WHERE [Student_ID] = ?";
+
+            using (OleDbCommand cmd = new OleDbCommand(query, connection))
+            {
+                cmd.Parameters.AddWithValue("?", StdName.Text);
+                cmd.Parameters.AddWithValue("?", roll);
+                cmd.Parameters.AddWithValue("?", StdSec.Text);
+                cmd.Parameters.AddWithValue("?", age);
+                cmd.Parameters.AddWithValue("?", StdAddress.Text);
+                cmd.Parameters.AddWithValue("?", StdPhone.Text);
+                cmd.Parameters.AddWithValue("?", int.Parse(StdID.Text));
+
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+
+            LoadData();
+            MessageBox.Show("Student updated successfully!");
+        }
     }
 }
