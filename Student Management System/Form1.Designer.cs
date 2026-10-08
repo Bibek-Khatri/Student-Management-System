@@ -67,6 +67,7 @@
             StudentId.Size = new Size(79, 20);
             StudentId.TabIndex = 1;
             StudentId.Text = "Student ID";
+            StdID.ReadOnly = true;
             // 
             // StudentName
             // 
@@ -179,6 +180,7 @@
             Add.TabIndex = 15;
             Add.Text = "Add";
             Add.UseVisualStyleBackColor = true;
+            Add.Click += Add_Click;
             // 
             // Update
             // 
@@ -243,6 +245,7 @@
             Controls.Add(label1);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
