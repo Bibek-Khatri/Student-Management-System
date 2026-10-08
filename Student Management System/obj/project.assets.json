@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\github\\Student Management System\\Student Management System\\SMS.csproj",
-      "projectName": "SMS",
-      "projectPath": "D:\\github\\Student Management System\\Student Management System\\SMS.csproj",
+      "projectUniqueName": "D:\\github\\Student Management System\\Student Management System\\Student Management System.csproj",
+      "projectName": "Student Management System",
+      "projectPath": "D:\\github\\Student Management System\\Student Management System\\Student Management System.csproj",
       "packagesPath": "C:\\Users\\Acer Nitro v16\\.nuget\\packages\\",
       "outputPath": "D:\\github\\Student Management System\\Student Management System\\obj\\",
       "projectStyle": "PackageReference",
