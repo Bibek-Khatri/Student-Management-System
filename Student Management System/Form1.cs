@@ -190,5 +190,16 @@ namespace Student_Management_System
 
             MessageBox.Show("Student deleted successfully!");
         }
+
+        private void Clear_Click(object sender, EventArgs e)
+        {
+            StdID.Clear();
+            StdName.Clear();
+            StdRoll.Clear();
+            StdSec.Clear();
+            StdAge.Clear();
+            StdAddress.Clear();
+            StdPhone.Clear();
+        }
     }
 }

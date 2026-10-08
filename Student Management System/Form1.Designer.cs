@@ -210,6 +210,7 @@
             Clear.TabIndex = 18;
             Clear.Text = "Clear";
             Clear.UseVisualStyleBackColor = true;
+            Clear.Click += Clear_Click;
             // 
             // dataGridView1
             // 
