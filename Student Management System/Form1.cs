@@ -147,5 +147,48 @@ namespace Student_Management_System
             LoadData();
             MessageBox.Show("Student updated successfully!");
         }
+
+        private void Delete_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(StdID.Text))
+            {
+                MessageBox.Show("Please select a student first!");
+                return;
+            }
+
+            DialogResult result = MessageBox.Show(
+                "Are you sure you want to delete this student?",
+                "Confirm Delete",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (result != DialogResult.Yes)
+            {
+                return;
+            }
+
+            string query = "DELETE FROM Students WHERE [Student_ID] = ?";
+
+            using (OleDbCommand cmd = new OleDbCommand(query, connection))
+            {
+                cmd.Parameters.AddWithValue("?", int.Parse(StdID.Text));
+
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+
+            LoadData();
+
+            StdID.Clear();
+            StdName.Clear();
+            StdRoll.Clear();
+            StdSec.Clear();
+            StdAge.Clear();
+            StdAddress.Clear();
+            StdPhone.Clear();
+
+            MessageBox.Show("Student deleted successfully!");
+        }
     }
 }

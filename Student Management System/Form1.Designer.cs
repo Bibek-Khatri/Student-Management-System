@@ -200,6 +200,7 @@
             Delete.TabIndex = 17;
             Delete.Text = "Delete";
             Delete.UseVisualStyleBackColor = true;
+            Delete.Click += Delete_Click;
             // 
             // Clear
             // 
