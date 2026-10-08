@@ -50,7 +50,7 @@ namespace Student_Management_System
                 return;
             }
 
-            
+
             if (StdPhone.Text.Length < 7 || StdPhone.Text.Length > 15)
             {
                 MessageBox.Show("Phone number must be between 7 and 15 digits!");
@@ -76,6 +76,22 @@ namespace Student_Management_System
 
             LoadData();
             MessageBox.Show("Student added successfully!");
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+
+                StdID.Text = row.Cells["Student_ID"].Value?.ToString();
+                StdName.Text = row.Cells["Name"].Value?.ToString();
+                StdRoll.Text = row.Cells["Roll_no"].Value?.ToString();
+                StdSec.Text = row.Cells["Section"].Value?.ToString();
+                StdAge.Text = row.Cells["Age"].Value?.ToString();
+                StdAddress.Text = row.Cells["Address"].Value?.ToString();
+                StdPhone.Text = row.Cells["Phone_no"].Value?.ToString();
+            }
         }
     }
 }

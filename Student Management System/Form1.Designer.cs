@@ -67,7 +67,6 @@
             StudentId.Size = new Size(79, 20);
             StudentId.TabIndex = 1;
             StudentId.Text = "Student ID";
-            StdID.ReadOnly = true;
             // 
             // StudentName
             // 
@@ -127,6 +126,7 @@
             // 
             StdID.Location = new Point(170, 138);
             StdID.Name = "StdID";
+            StdID.ReadOnly = true;
             StdID.Size = new Size(179, 27);
             StdID.TabIndex = 8;
             // 
@@ -217,6 +217,7 @@
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(502, 471);
             dataGridView1.TabIndex = 19;
+            dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // Form1
             // 
