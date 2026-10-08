@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "gLfvIxirDnM=",
+  "dgSpecHash": "jT9g/3BwPLE=",
   "success": true,
   "projectFilePath": "D:\\github\\Student Management System\\Student Management System\\Student Management System.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Acer Nitro v16\\.nuget\\packages\\system.data.oledb\\10.0.12\\system.data.oledb.10.0.12.nupkg.sha512"
+  ],
   "logs": []
 }
